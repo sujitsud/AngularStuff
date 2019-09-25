@@ -1,0 +1,32 @@
+.background{
+	background-color: azure;
+	overflow-x: hidden;
+	overflow-y:hidden;
+}
+
+div.outline {
+	background-color: honeydew;
+	text-align: center;
+	border-style: groove;
+	border-color: SteelBlue;
+	border-width: 5px;;
+	margin-right: -100px;
+	
+	
+	
+}
+div.md-form{
+margin-top: -70px;
+margin-left: 20px;
+}
+
+button{
+	margin-top: -5px;
+	
+}
+
+div.registerbody{
+	margin-left: 400px;
+	margin-top: 50px;
+	
+}

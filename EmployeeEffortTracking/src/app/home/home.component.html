@@ -1,0 +1,206 @@
+<!--<h1>Hi {{currentUser.firstName}}!</h1>
+<p>You're logged in with Angular 6!!</p>
+<h3>All registered users:</h3>
+<ul>
+    <li *ngFor="let user of users">
+        {{user.username}} ({{user.firstName}} {{user.lastName}})
+        - <a (click)="deleteUser(user.id)" class="text-danger">Delete</a>
+    </li>
+</ul>-->
+<div class="background">
+	
+<form class="form-horizontal" [formGroup]="effortForm">
+<div class="outline">
+    <h1 style="color:white;font-family:'Times New Roman', Times,serif"><b>APPLICATION EFFORT TRACKING</b></h1>
+<div class="navigateleft">
+<i><p><a    [routerLink]="['/']" style="color:white"><i class="fa fa-home fa-2x" title="Back to Eng IT Support Page"></i></a></p></i>
+</div>
+
+<div class="navigateright">
+<i><p><a    [routerLink]="['/applications']" style="color:white"><b><u>MORE APPLICATIONS</u></b></a></p></i>
+</div>
+
+</div><br>
+<!--<div id="fetchbtn">
+      <button  *ngIf="isCollapsed"  type="button" class="btn btn-primary" (click)="toggleCollapsed();">IRT Details</button>
+      <button *ngIf="!isCollapsed" type ="button" class = "btn btn-primary" (click)="toggleCollapsed()">Collapse</button>
+    </div>-->
+
+<!--< *ngIf="!isCollapsed">-->
+<div class="table1">
+    <table class="table table-bordered">
+        <thead>
+            <tr class="active">
+                <th style="background-color:steelblue;color:white;font-family: 'Times New Roman', Times, serif;font-size: 20px"  colspan="2"><b>IRT</b></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="active">
+                <td>
+                    <button type="button" class="btn btn-default" [routerLink]="[]"  (click)="getIrtCount()"><b>Case Count</b></button><br><br>
+                   <!-- <div class="form-group" [ngClass]="{ 'is-invalid': submitted && effortForm.get('dateRange').errors && (effortForm.get('dateRange').touched ||effortForm.get('dateRange').dirty)}">-->
+					<div class="md-form">
+					<input mdbInput type="text"  id="form1" formControlName="dateRange" placeholder="Select Date Range" bsDaterangepicker class="form-control"  [ngClass]="{ 'is-invalid': irtsubmitted && f.dateRange.errors  }" /> 
+				
+					
+				<!-- </div> -->
+					<!-- <div *ngIf="submitted && f.dateRange.errors" class="invalid-feedback">
+                    <div *ngIf="f.dateRange.errors.required">Date is required</div>
+                </div>-->
+                <span class="invalid-feedback" *ngIf="irtsubmitted && effortForm.get('dateRange').errors ">
+                <span *ngIf="f.dateRange.errors.required">
+                    Date is required
+                </span>
+                </span>
+                </div>
+                </td>
+                <td>{{irtresponse}}</td>
+            </tr>
+            <tr class="active">
+				<td colspan="2">  <button type="button" class="btn btn-default" [routerLink]="['/home']"   (click)="openLg(content)" ><b>Case Trend</b></button></td>
+            </tr>
+             <tr class="active">
+                <td colspan="2"><button type="button" class="btn btn-default" [routerLink]="['/home']" (click)="populateIRTPieChart(content)"><b>Categorization</b></button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="table2">
+ <table class="table table-bordered">
+        <thead>
+            <tr class="active">
+                <th style="background-color:steelblue;color:white;font-family: 'Times New Roman', Times, serif;font-size: 20px"  colspan="2"><b>QDDTS</b></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="active">
+                <td><button type="button" class="btn btn-default" [routerLink]="[]" (click)="getQddtsCount()"><b>Case Count</b></button>
+                    <br><br>
+                   <!-- <div class="form-group" [ngClass]="{ 'is-invalid': submitted && effortForm.get('dateRange').errors && (effortForm.get('dateRange').touched ||effortForm.get('dateRange').dirty)}">-->
+				   <div class="md-form">
+					<input mdbInput id ="form2" type="text"  formControlName="qddtsDateRange" placeholder="Select Date Range" bsDaterangepicker class="form-control "  [ngClass]="{ 'is-invalid': qddtssubmitted && f.qddtsDateRange.errors  }" />
+                <!-- <div *ngIf="submitted && f.dateRange.errors" class="invalid-feedback">
+                    <div *ngIf="f.dateRange.errors.required">Date is required</div>
+                </div>-->
+                <span class="invalid-feedback" *ngIf="qddtssubmitted && effortForm.get('qddtsDateRange').errors ">
+                <span *ngIf="f.qddtsDateRange.errors.required">
+                    Date is required
+                </span>
+				</span>
+				</div>
+                </td>
+                <td>{{qddtsresponse}}</td>
+            </tr>
+            <tr class="active">
+                <td colspan="2"><button type="button" class="btn btn-default" [routerLink]="['/home']"   (click)="populateQddts(content)" ><b>Case Trend</b></button></td>
+			</tr>
+			<tr class="active">
+                <td colspan="2"><button type="button" class="btn btn-default" [routerLink]="['/home']" (click)="populateQDDTSPieChart(content)"><b>Categorization</b></button></td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+<div class="table3">
+ <table class="table table-bordered">
+        <thead>
+            <tr class="active">
+                <th style="background-color:steelblue;color:white;font-family: 'Times New Roman', Times, serif;font-size: 20px" colspan="2"><b>TIMS</b></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="active">
+                <td> <button type="button" class="btn btn-default" [routerLink]="[]" (click)="getTimsCount()"><b>Case Count</b></button>
+                <br><br>
+                   <!-- <div class="form-group" [ngClass]="{ 'is-invalid': submitted && effortForm.get('dateRange').errors && (effortForm.get('dateRange').touched ||effortForm.get('dateRange').dirty)}">-->
+				   <div class="md-form">
+					<input mdbInput type="text" id="form3" formControlName="timsDateRange" placeholder="Select Date Range" bsDaterangepicker class="form-control "  [ngClass]="{ 'is-invalid': timssubmitted && f.timsDateRange.errors  }" />
+                <!-- <div *ngIf="submitted && f.dateRange.errors" class="invalid-feedback">
+                    <div *ngIf="f.dateRange.errors.required">Date is required</div>
+                </div>-->
+                <span class="invalid-feedback" *ngIf="timssubmitted && effortForm.get('timsDateRange').errors ">
+                <span *ngIf="f.timsDateRange.errors.required">
+                    Date is required
+                </span>
+				</span>
+				</div>
+                </td>
+                <td>{{timsresponse}}</td>
+            </tr>
+            <tr class="active">
+                <td colspan="2"><button type="button" class="btn btn-default" [routerLink]="['/home']"  (click)="populateTims(content)" ><b>Case Trend</b></button></td>
+			</tr>
+			<tr class="active">
+                <td colspan="2"><button type="button" class="btn btn-default" [routerLink]="['/home']" (click)="populateTimsPieChart(content)"><b>Categorization</b></button></td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+<div class="table4">
+ <table class="table table-bordered">
+        <thead>
+            <tr class="active">
+                <th style="background-color:steelblue;color:white;font-family: 'Times New Roman', Times, serif;font-size: 20px" colspan="2"><b>PRRQ</b></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="active">
+                <td><button type="button" class="btn btn-default" [routerLink]="[]" (click)="getPrrqCount()"><b>Case Count</b></button>
+                <br><br>
+                   <!-- <div class="form-group" [ngClass]="{ 'is-invalid': submitted && effortForm.get('dateRange').errors && (effortForm.get('dateRange').touched ||effortForm.get('dateRange').dirty)}">-->
+				    <div class="md-form">
+					<input mdbInput type="text" id="form4" formControlName="prrqDateRange" placeholder="Select Date Range" bsDaterangepicker class="form-control "  [ngClass]="{ 'is-invalid': prrqsubmitted && f.prrqDateRange.errors  }" />
+                <!-- <div *ngIf="submitted && f.dateRange.errors" class="invalid-feedback">
+                    <div *ngIf="f.dateRange.errors.required">Date is required</div>
+                </div>-->
+                <span class="invalid-feedback" *ngIf="prrqsubmitted && effortForm.get('prrqDateRange').errors ">
+                <span *ngIf="f.prrqDateRange.errors.required">
+                    Date is required
+                </span>
+				</span>
+			</div>
+                </td>
+                <td>{{prrqresponse}}</td>
+            </tr>
+            <tr class="active">
+                <td colspan="2"><button type="button" class="btn btn-default" [routerLink]="['/home']" (click)="populatePrrq(content)"><b>Case Trend</b></button></td>
+			</tr>
+			<tr class="active">
+                <td colspan="2"><button type="button" class="btn btn-default" [routerLink]="['/home']" (click)="populatePRRQPieChart(content)"><b>Categorization</b></button></td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+
+</form>
+
+<ng-template #content let-modal>
+  <div class="modal-header" style="background-color: ivory">
+    <h4 class="modal-title" style="color:black" >{{applicationTitle}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body" style="background-color: ivory">
+	  
+	<p *ngIf="applicationTitle=='IRT CaseTrend'"><canvas id="irtLineChart"></canvas></p>
+	<p *ngIf="applicationTitle=='QDDTS CaseTrend'"><canvas id="qddtsLineChart"></canvas></p>
+	<p *ngIf="applicationTitle=='TIMS CaseTrend'"><canvas id="timsLineChart"></canvas></p>
+	<p *ngIf="applicationTitle=='PRRQ CaseTrend'"><canvas id="prrqLineChart"></canvas></p>
+	<p *ngIf="applicationTitle=='TIMS Categorization'"><canvas id="timsPieChart"></canvas></p>
+	<p *ngIf="applicationTitle=='IRT Categorization'"><canvas id="irtPieChart"></canvas></p>
+	<p *ngIf="applicationTitle=='QDDTS Categorization'"><canvas id="qddtsPieChart"></canvas></p>
+	<p *ngIf="applicationTitle=='PRRQ Categorization'"><canvas id="prrqPieChart"></canvas></p>
+  </div>
+  <div class="modal-footer" style="background-color: ivory">
+    <!-- <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button> -->
+  </div>
+</ng-template>
+
+</div>

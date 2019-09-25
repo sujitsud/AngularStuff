@@ -1,0 +1,18 @@
+div.outline {
+	background-color: lightpink;
+	text-align: center;
+	border-style: groove;
+	border-color: SteelBlue;
+	border-width: medium;
+    margin-right: -100px;
+}
+
+.navigateright{
+    margin-left : 1100px;
+    margin-top:80px;
+
+}
+
+div.background{
+	background-color: lavenderblush;
+}

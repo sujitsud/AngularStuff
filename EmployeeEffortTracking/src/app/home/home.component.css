@@ -1,0 +1,100 @@
+.table1{
+    width: 17%;
+    display: inline-block;
+	
+  
+    
+}
+
+th{
+	text-align: center
+}
+
+.table2{
+     width: 17%;
+  display: inline-block;
+    margin-left: 100px;
+    
+}
+
+.table3{
+     width: 17%;
+  display: inline-block;
+  margin-left: 100px;
+   
+    
+   
+}
+
+
+.table4{
+     width: 17%;
+  display: inline-block;
+  margin-left: 100px;
+   
+}
+
+div.outline {
+	background-color: teal;
+	text-align: center;
+	border-style: groove;
+	border-color: SteelBlue;
+	border-width: medium;
+	margin-right: -100px;
+	
+	
+	
+}
+
+
+
+div.navigateleft{
+
+margin-top: -40px;
+text-align: left
+
+}
+div.navigateright{
+	margin-top: -50px;
+	text-align: left;
+	margin-left: 100px;
+}
+
+div.background{
+	background-color: azure;
+	overflow-x: hidden;
+	overflow-y:hidden;
+}
+
+input{
+	background-color: azure;
+}
+.btn {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+/* Boostrap Buttons Styling */
+
+.btn-default {
+  font-family: Raleway-SemiBold;
+  font-size: 12px;
+  color: white;
+  letter-spacing: 1px;
+  line-height: 15px;
+  border: 2px solid rgba(108, 89, 179, 0.75);
+  border-radius: 40px;
+  background: lavender;
+  transition: all 0.3s ease 0s;
+  width: 200px;
+}
+
+.btn-default:hover {
+  color: #FFF;
+  background: rgba(108, 88, 179, 0.75);
+  border: 2px solid rgba(108, 89, 179, 0.75);
+}
+
+
+.form-rounded{
+	border-radius:1rem;
+}

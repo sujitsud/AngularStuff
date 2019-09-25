@@ -1,0 +1,66 @@
+
+<div class="background">
+<div class="outline">
+	<h5 style="color:white;margin-right: 900px; font-family: 'Times New Roman', Times, serif;"><b>ENG IT PROJECT MANAGEMENT DASHBOARD</b></h5>
+	<div class="caseCountMonth">
+		<b><p style="font-family: 'Times New Roman', Times, serif;color: white;margin-top: -30px">TOTAL CASE COUNT {{caseCountMonthResponse[0]['MONTH']}}: {{caseCountMonthResponse[0]['CASE_COUNT']}} </p></b>
+	</div><br>
+	<div class="percentIncDec" style="margin-top: -35px;color: white;" > 
+		<!-- <p><i class="fa fa-arrow-up">{{percentResponse.percentage}}</i></p> -->
+		<b> <p style="font-family: 'Times New Roman', Times, serif" *ngIf="percentResponse[0]['PERCENTAGE'] > 0"><i class="fa fa-arrow-up">{{percentNumber}}%  INCREMENT MoM</i></p></b>
+		<b><p style="font-family: 'Times New Roman', Times, serif" *ngIf="percentResponse[0]['PERCENTAGE'] < 0"><i class="fa fa-arrow-down">{{percentNumber}}%  DECREMENT MoM</i></p> </b>
+	</div>
+	<div class="navigateright">
+<i><p><a [routerLink]="['/home']" style="color:white"><i class="fa fa-arrow-alt-circle-right fa-2x" title="Move to Application Effort Tracking Page" ></i></a></p></i>
+</div>
+<div class="table">
+<b><p><a [routerLink]="['/datatable']"  style="color:white"><i class="fa fa-table fa-2x" title="Data Table"></i></a></p></b>	
+</div>
+<!-- <div class="logout">
+<b><p><a [routerLink]="['/login']"  style="color:white"><i class="fa fa-sign-out-alt fa-2x" title="Logout"></i></a></p></b>
+</div> -->
+</div>
+<br>
+
+  
+
+<mat-grid-list cols="2" rowHeight="250px" gutterSize="5px">
+<mat-grid-tile colspan="1" rowspan="1">
+	<div style="height: 96%; width:100%">
+<canvas id="overallLineChart" ></canvas>
+</div>
+<mat-grid-tile-header style="background-color:rgb(112,104,91)"><h3><b>CASE TREND FOR LAST 6 MONTHS</b></h3></mat-grid-tile-header>
+
+</mat-grid-tile>
+
+<mat-grid-tile colspan="1" rowspan="1">
+	<div style="height: 85%;width: 85%">
+<canvas id="pieChart" ></canvas>
+</div>
+<mat-grid-tile-header style="background-color:rgb(112,104,91)"><h3><b>APPLICATION WISE CASE COUNT</b></h3></mat-grid-tile-header>
+</mat-grid-tile>
+
+<mat-grid-tile colspan="1" rowspan="1">
+	<div style="height: 75%;width: 90%">
+<canvas id="overallBarChart" ></canvas>
+</div>
+<mat-grid-tile-header style="background-color:rgb(112,104,91)"><h3><b>SLA TREND</b></h3></mat-grid-tile-header>
+</mat-grid-tile>
+
+<mat-grid-tile colspan="1" rowspan="1"> 
+<!-- <div style="height: 75%;width: 90%">
+<canvas id="heatChart" ></canvas>
+</div> -->
+ 
+ <div style="height: 65%;width: 80%; margin-top: -40px; margin-left: 60px">
+<canvas id="horizontalChart" ></canvas>
+</div>
+<mat-grid-tile-header style="background-color:rgb(112,104,91)"><h3><b>RESOURCE ALLOCATION</b></h3></mat-grid-tile-header>
+</mat-grid-tile>
+
+
+</mat-grid-list>
+
+</div>
+
+

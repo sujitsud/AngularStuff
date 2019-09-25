@@ -1,0 +1,168 @@
+<div class="background">
+<form class="form-horizontal" [formGroup]="effortNextForm">
+<div class="outline">
+    <h1 style="color:white;font-family:'Times New Roman', Times,serif"><b>APPLICATION EFFORT TRACKING..</b></h1>
+
+	<div class="navigateleft">
+<i><p><a [routerLink]="['/home']" style="color:white"><i class="fa fa-arrow-alt-circle-left fa-2x" title="Back"></i></a></p></i>
+</div>
+
+<div class="navigateright">
+<i><p><a [routerLink]="['/']" style="color:white"><i class="fa fa-home fa-2x" title="Back to Eng IT Support Page"></i></a></p></i>
+</div>
+
+<!-- <div class="logout">
+<b><p><a [routerLink]="['/login']"  style="color:white"><b><u><i>LOGOUT</i></u></b></a></p></b>
+</div> -->
+</div><br>
+<!--<div id="fetchbtn">
+      <button  *ngIf="isCollapsed"  type="button" class="btn btn-primary" (click)="toggleCollapsed();">IRT Details</button>
+      <button *ngIf="!isCollapsed" type ="button" class = "btn btn-primary" (click)="toggleCollapsed()">Collapse</button>
+    </div>-->
+
+<!--< *ngIf="!isCollapsed">-->
+<div class="table1">
+    <table class="table table-bordered">
+        <thead>
+            <tr class="active">
+                <th style="background-color:steelblue;color:white;font-family: 'Times New Roman', Times, serif;font-size: 20px"  colspan="2"><b>CQI</b></th>
+            </tr>
+        </thead>
+        <tbody>
+           <tr class="active">
+                <td>
+                    <button type="button" class="btn btn-default" [routerLink]="['/applications']" (click)="getCqiCount()"><b>Case Count</b></button><br><br>
+                   <!-- <div class="form-group" [ngClass]="{ 'is-invalid': submitted && effortForm.get('dateRange').errors && (effortForm.get('dateRange').touched ||effortForm.get('dateRange').dirty)}">-->
+					<div class="md-form">
+					<input mdbInput type="text"  formControlName="cqiDateRange" placeholder="Select Date Range" bsDaterangepicker class="form-control "  [ngClass]="{ 'is-invalid': cqisubmitted && f.cqiDateRange.errors  }" />
+                <!-- <div *ngIf="submitted && f.dateRange.errors" class="invalid-feedback">
+                    <div *ngIf="f.dateRange.errors.required">Date is required</div>
+                </div>-->
+                <span class="invalid-feedback" *ngIf="cqisubmitted && effortNextForm.get('cqiDateRange').errors ">
+                <span *ngIf="f.cqiDateRange.errors.required">
+                    Date is required
+                </span>
+                </span>
+                </div>
+                </td>
+                <td>{{cqiresponse}}</td>
+            </tr>
+            <tr class="active">
+                <td colspan="2"><button type="button" class="btn btn-default" [routerLink]="['/applications']" (click)="populateCQICaseTrend(content)"><b>Case Trend</b></button></td>
+			</tr>
+			<tr class="active">
+                <td colspan="2"><button type="button" class="btn btn-default" [routerLink]="['/applications']" (click)="populateCqiPieChart(content)"><b>Categorization</b></button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<div class="table2">
+ <table class="table table-bordered">
+        <thead>
+            <tr class="active">
+                <th style="background-color:steelblue;color:white;font-family: 'Times New Roman', Times, serif;font-size: 20px"  colspan="2"><b>BPR</b></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="active">
+                <td><button type="button" class="btn btn-default"  [routerLink]="['/applications']" (click)="getBprCount()"><b>Case Count</b></button>
+                    <br><br>
+                   <!-- <div class="form-group" [ngClass]="{ 'is-invalid': submitted && effortForm.get('dateRange').errors && (effortForm.get('dateRange').touched ||effortForm.get('dateRange').dirty)}">-->
+				   <div class="md-form">
+					<input mdbInput type="text"  formControlName="bprDateRange" placeholder="Select Date Range" bsDaterangepicker class="form-control "  [ngClass]="{ 'is-invalid': bprsubmitted && f.bprDateRange.errors  }" />
+                <!-- <div *ngIf="submitted && f.dateRange.errors" class="invalid-feedback">
+                    <div *ngIf="f.dateRange.errors.required">Date is required</div>
+                </div>-->
+                <span class="invalid-feedback" *ngIf="bprsubmitted && effortNextForm.get('bprDateRange').errors ">
+                <span *ngIf="f.bprDateRange.errors.required">
+                    Date is required
+                </span>
+				</span>
+				</div>
+                </td>
+                <td>{{bprresponse}}</td>
+            </tr>
+            <tr class="active">
+                <td colspan="2"><button type="button" class="btn btn-default" [routerLink]="['/applications']" (click)="populateBPRCaseTrend(content)"><b>Case Trend</b></button></td>
+			</tr>
+			<tr class="active">
+                <td colspan="2"><button type="button" class="btn btn-default" [routerLink]="['/applications']" (click)="populateBprPieChart(content)"><b>Categorization</b></button></td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+
+<div class="table3">
+ <table class="table table-bordered">
+        <thead>
+            <tr class="active">
+                <th style="background-color:steelblue;color:white;font-family: 'Times New Roman', Times, serif;font-size: 20px" colspan="2"><b>CFN</b></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="active">
+                <td><button type="button" class="btn btn-default" [routerLink]="['/applications']" (click)="getCfnCount()"><b>Case Count</b></button>
+                    <br><br>
+                   <!-- <div class="form-group" [ngClass]="{ 'is-invalid': submitted && effortForm.get('dateRange').errors && (effortForm.get('dateRange').touched ||effortForm.get('dateRange').dirty)}">-->
+				    <div class="md-form">
+					<input mdbInput type="text"  formControlName="cfnDateRange" placeholder="Select Date Range" bsDaterangepicker class="form-control "  [ngClass]="{ 'is-invalid': cfnsubmitted && f.cfnDateRange.errors  }" />
+                <!-- <div *ngIf="submitted && f.dateRange.errors" class="invalid-feedback">
+                    <div *ngIf="f.dateRange.errors.required">Date is required</div>
+                </div>-->
+                <span class="invalid-feedback" *ngIf="cfnsubmitted && effortNextForm.get('cfnDateRange').errors ">
+                <span *ngIf="f.cfnDateRange.errors.required">
+                    Date is required
+                </span>
+				</span>
+				</div>
+                </td>
+                <td>{{cfnresponse}}</td>
+            </tr>
+            <tr class="active">
+                <td colspan="2"><button type="button" class="btn btn-default" [routerLink]="['/applications']" (click)="populateCFNCaseTrend(content)"><b>Case Trend</b></button></td>
+			</tr>
+			<tr class="active">
+                <td colspan="2"><button type="button" class="btn btn-default" [routerLink]="['/applications']" (click)="populateCfnPieChart(content)"><b>Categorization</b></button></td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+
+<div class="logout">
+<h4><b><p><a [routerLink]="['/login']"  style="color:white"><span class="glyphicon glyphicon-log-out"></span></a></p></b></h4>
+</div>
+
+
+
+
+
+</form>
+
+<ng-template #content let-modal>
+  <div class="modal-header" style="background-color: ivory">
+    <h4 class="modal-title" style="color:black" >{{applicationTitle}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body" style="background-color: ivory">
+	  
+	<p *ngIf="applicationTitle=='CQI CaseTrend'"><canvas id="cqiLineChart"></canvas></p>
+	<p *ngIf="applicationTitle=='BPR CaseTrend'"><canvas id="bprLineChart"></canvas></p>
+	<p *ngIf="applicationTitle=='CFN CaseTrend'"><canvas id="cfnLineChart"></canvas></p>
+	<p *ngIf="applicationTitle=='CQI Categorization'"><canvas id="cqiPieChart"></canvas></p>
+	<p *ngIf="applicationTitle=='BPR Categorization'"><canvas id="bprPieChart"></canvas></p>
+	<p *ngIf="applicationTitle=='CFN Categorization'"><canvas id="cfnPieChart"></canvas></p>
+	
+  </div>
+  <div class="modal-footer" style="background-color: ivory">
+    <!-- <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button> -->
+  </div>
+</ng-template>
+</div>

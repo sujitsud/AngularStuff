@@ -1,0 +1,152 @@
+<div class="background">
+	<div class="outline">
+		<h1 style="color:white;font-family:'Times New Roman', Times,serif"><b>DATA TABLE</b></h1>
+		<div class="navigateleft">
+<i><p><a    [routerLink]="['/']" style="color:white"><i class="fa fa-home fa-2x" title="Back to Eng IT Support Page"></i></a></p></i>
+</div>
+<!-- <div class="logout">
+<b><p><a [routerLink]="['/login']"  style="color:white"><i class="fa fa-sign-out-alt fa-2x" title="Logout"></i></a></p></b>
+</div> -->
+	</div>
+
+	<!-- Editable table -->
+	<div class="card">
+
+		<div class="card-body">
+			<div id="table" class="table-editable">
+				<span class="table-add float-right mb-3 mr-2">
+					<a class="text-success" (click)="add()">
+						<mdb-icon fas icon="plus" size="2x"></mdb-icon>
+					</a>
+					
+				</span>
+				<div class="row">
+    <div class="col-md-2 mx-auto">
+      <div class="md-form">
+        <input type="text" [(ngModel)]="searchText" class="form-control" id="search" mdbInput>
+        <label for="search">Search</label>
+      </div>
+    </div>
+  </div>
+				<table class="table table-bordered table-responsive-md table-striped text-center  z-depth-1" mdbTable
+					#tableEl="mdbTable">
+					<thead>
+						<tr>
+							 <th class="text-center"> ID</th> 
+							<th class="text-center">Summary</th>
+							<th class="text-center">E/V</th>
+							<th class="text-center">Status</th>
+							<th class="text-center">Resource Name</th>
+							<th class="text-center">Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr *ngFor="let person of personList; let id = index">
+
+							 <td
+								*ngIf="person.id != '' && id+1 >= mdbTablePagination.firstItemIndex && id < mdbTablePagination.lastItemIndex">
+								<span (keyup)="changeValue(id, 'name', $event)" (blur)="updateList(id, 'id', $event)"
+									contenteditable="true">{{person.id}}</span>
+							</td> 
+							 <td
+								*ngIf="person.id == '' && id+1 >= mdbTablePagination.firstItemIndex && id < mdbTablePagination.lastItemIndex">
+								<span (keyup)="changeValue(id, 'name', $event)" (blur)="updateList(id, 'id', $event)"></span>
+							</td> 
+							<td
+								*ngIf="person.summary != '' && id+1 >= mdbTablePagination.firstItemIndex && id < mdbTablePagination.lastItemIndex ">
+								<span contenteditable="true" (keyup)="changeValue(id, 'summary', $event)"
+									(blur)="updateList(id, 'summary', $event)">{{person.summary}}</span>
+							</td>
+							<td
+								*ngIf="person.summary == '' && id+1 >= mdbTablePagination.firstItemIndex && id < mdbTablePagination.lastItemIndex">
+
+								<span contenteditable="true" (keyup)="changeValue(id, 'summary', $event)"
+									(blur)="updateList(id, 'summary', $event)">null</span></td>
+							<td
+								*ngIf="person.eorv != '' && id+1 >= mdbTablePagination.firstItemIndex && id < mdbTablePagination.lastItemIndex ">
+								<span contenteditable="true" (keyup)="changeValue(id, 'eorv', $event)"
+									(blur)="updateList(id, 'eorv', $event)">{{person.eorv}}</span>
+							</td>
+							<td
+								*ngIf="person.eorv == '' && id+1 >= mdbTablePagination.firstItemIndex && id < mdbTablePagination.lastItemIndex">
+								<span (keyup)="changeValue(id, 'eorv', $event)"
+									(blur)="updateList(id, 'eorv', $event)"><span>
+
+										<select class="form-control" id="sel1" style="text-align: center" (change)="selectHandler($event)" [value]="E">
+											<option>E</option>
+											<option>V</option>
+
+										</select>
+									</span></span>
+							</td>
+							<td
+								*ngIf="person.status != '' && id+1 >= mdbTablePagination.firstItemIndex && id < mdbTablePagination.lastItemIndex">
+								<span contenteditable="true" (keyup)="changeValue(id, 'status', $event)"
+									(blur)="updateList(id, 'status', $event)">{{person.status}}</span>
+
+							</td>
+							<td
+								*ngIf="person.status == '' && id+1 >= mdbTablePagination.firstItemIndex && id < mdbTablePagination.lastItemIndex">
+								<span (keyup)="changeValue(id, 'status', $event)"
+									(blur)="updateList(id, 'status', $event)">
+									<span>
+
+										<select class="form-control" id="sel2" style="text-align: center" (change)="selectHandler1($event)" [value]="Pending">
+											<option>Pending</option>
+											<option>In Progress</option>
+
+										</select>
+									</span>
+								</span>
+
+							</td>
+							<td
+								*ngIf="person.resourceName == '' && id+1 >= mdbTablePagination.firstItemIndex && id < mdbTablePagination.lastItemIndex">
+								<span (keyup)="changeValue(id, 'resourceName', $event)"
+									(blur)="updateList(id, 'resourceName', $event)">
+									<span>
+
+										<select class="form-control" id="sel3" style="text-align: center" (change)="selectHandler2($event)"[value]="Ramya">
+											<option>Ramya</option>
+											<option>Sujith</option>
+
+										</select>
+									</span>
+								</span>
+							</td>
+
+
+							<td
+								*ngIf="person.resourceName != '' && id+1 >= mdbTablePagination.firstItemIndex && id < mdbTablePagination.lastItemIndex">
+								<span contenteditable="true" (keyup)="changeValue(id, 'resourceName', $event)"
+									(blur)="updateList(id, 'resourceName', $event)">{{person.resourceName}}</span>
+
+							</td>
+
+							<td
+								*ngIf="id+1 >= mdbTablePagination.firstItemIndex && id < mdbTablePagination.lastItemIndex">
+								<span class="table-remove">
+									<!-- <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0"
+										(click)="remove(id)">Remove</button> -->
+										<button type="button" mdbBtn color="success" rounded="true" size="sm" class="my-0" appDebounceClick (debounceClick)="insert(id);clicked= true;" [debounceTime]="700" [disabled]="clicked" style="margin-top: 10px;"><!-- <i class="fas fa-save fa-2x" style="color:green"> -->SAVE &nbsp;&nbsp;&nbsp;<!-- </i></span> -->
+										</button>
+
+										<span (click)="remove(id)"><i class="fas fa-trash fa-2x" style="color: red"></i></span>
+								</span>
+							</td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<td colspan="4">
+								<mdb-table-pagination [tableEl]="tableEl" [searchDataSource]="personList">
+								</mdb-table-pagination>
+							</td>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
+		</div>
+	</div>
+	<!-- Editable table -->
+</div>

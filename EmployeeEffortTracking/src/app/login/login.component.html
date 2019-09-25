@@ -1,0 +1,117 @@
+
+<!-- <div class="background" style="background-color: lavender">
+	<form class="form-horizontal" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+		<div class="outline">
+			<h1 style="color:maroon;font-family:'Times New Roman', Times,serif; text-align: center;margin-left: 300px;margin-bottom: 40px"><b><i>Eng IT Login</i></b>
+			</h1>
+			
+	</div>		
+
+<div class="row">
+		<div class="col-md-2">
+					<div class="md-form">
+						<i class="fa fa-user prefix fa-2x" style="margin-left: -10px;margin-bottom: 10px"></i>
+  <input  mdbInput type="text"  id="username" style="color: black" formControlName="username" class="form-control"
+							[ngClass]="{ 'is-invalid': submitted && f.username.errors  }" style="margin-left: 35px;margin-top: -42px;" />
+
+						<label for="username" class="" data-error="wrong" data-success="right" style="color: maroon;margin-left: 35px;">Username</label>
+						<span class="invalid-feedback" *ngIf="submitted && loginForm.get('username').errors ">
+							<span *ngIf="f.username.errors.required">
+								Username is required
+							</span>
+						</span>
+	</div>
+		</div>
+
+		<div class="col-md-2">
+	<div class="md-form">
+    <i class="fa fa-lock prefix"></i>
+   <input  mdbInput type="password" style="color: black" formControlName="password" class="form-control"
+							[ngClass]="{ 'is-invalid': submitted && f.password.errors  }" />
+
+						<label for="password" class="" style="color: maroon"  data-error="wrong" data-success="right">Password</label>
+						<span class="invalid-feedback" *ngIf="submitted && loginForm.get('password').errors ">
+							<span *ngIf="f.password.errors.required">
+								Password is required
+							</span>
+						</span>
+</div> 
+</div>
+ <div class="md-form">
+				 <button [disabled]="loading"  class="btn btn-success">Login</button>
+				 </div>
+</div>
+
+
+<div class="register">
+	<h1 style="color:maroon;font-family:'Times New Roman', Times,serif; text-align: center"><b><i>Create a new account</i></b></h1>
+</div>
+<br><br>
+<form class="form-horizontal" [formGroup]="registerForm" (ngSubmit)="onSubmit1()">
+	<div class ="registerbody">
+	<div class="col-md-4">
+					<div class="md-form">
+						
+  <input  mdbInput type="text"  id="firstName" style="color: black" formControlName="firstName" class="form-control"
+							[ngClass]="{ 'is-invalid': registerSubmitted && f1.firstName.errors  }"  />
+
+						<label for="firstName" class="" data-error="wrong" data-success="right" >Firstname</label>
+						<span class="invalid-feedback" *ngIf="registerSubmitted && registerForm.get('firstName').errors ">
+							<span *ngIf="f1.firstName.errors.required">
+								Firstname is required
+							</span>
+						</span>
+	</div>
+		</div>
+<br><br>
+		<div class="col-md-4">
+					<div class="md-form">
+						
+  <input  mdbInput type="text"  id="lastName" style="color: black" formControlName="lastName" class="form-control"
+							[ngClass]="{ 'is-invalid': registerSubmitted && f1.lastName.errors  }"  />
+
+						<label for="lastName" class="" data-error="wrong" data-success="right" >Lastname</label>
+						<span class="invalid-feedback" *ngIf="registerSubmitted && registerForm.get('lastName').errors ">
+							<span *ngIf="f1.lastName.errors.required">
+								Lastname is required
+							</span>
+						</span>
+	</div>
+		</div>
+		<br><br><br>
+		<div class="col-md-4">
+					<div class="md-form">
+						
+  <input  mdbInput type="text"  id="username" style="color: black" formControlName="username" class="form-control"
+							[ngClass]="{ 'is-invalid': registerSubmitted && f1.username.errors  }"  />
+
+						<label for="username" class="" data-error="wrong" data-success="right" >Username</label>
+						<span class="invalid-feedback" *ngIf="registerSubmitted && registerForm.get('username').errors ">
+							<span *ngIf="f1.username.errors.required">
+								Username is required
+							</span>
+						</span>
+	</div>
+		</div>
+<br><br><br>
+			<div class="col-md-4">
+					<div class="md-form">
+						
+  <input  mdbInput type="password"  id="password" style="color: black" formControlName="password" class="form-control"
+							[ngClass]="{ 'is-invalid': registerSubmitted && f1.password.errors  }"  />
+
+						<label for="password" class="" data-error="wrong" data-success="right" >Password</label>
+						<span class="invalid-feedback" *ngIf="registerSubmitted && registerForm.get('password').errors ">
+							<span *ngIf="f1.password.errors.required">
+								Password is required
+							</span>
+						</span>
+	</div>
+		</div>
+		 <button [disabled]="registerLoading" class="btn btn-primary" style="margin-left: 30px">Sign Up</button>
+		 </div>
+		</form>
+
+
+	</form>
+</div> -->

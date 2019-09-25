@@ -1,0 +1,49 @@
+mat-grid-tile{
+	background-color: mintcream;
+}
+
+div.outline {
+	background-color: rgb(112,104,91);
+	text-align: center;
+	border-style: groove;
+	border-color: SteelBlue;
+	border-width: medium;
+	margin-right: -100px;
+
+	
+	
+	
+}
+
+div.background{
+	background-color: #DCDCDC;
+		overflow-x: hidden;
+
+	
+}
+div.overallLineChart{
+	position: fixed;
+	
+	
+}
+div.pieChart{
+	position: fixed
+}
+
+div.navigateright{
+	margin-top: -55px;
+	margin-left:900px;
+	
+}
+
+div.table{
+	margin-top: -55px;
+	margin-left: 500px;
+}
+
+div.logout{
+	margin-left: 1100px;
+	margin-top: -50px;
+}
+
+
