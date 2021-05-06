@@ -41,7 +41,7 @@
     "eslint": "^5.16.0",
     "font-awesome": "^4.7.0",
     "hammerjs": "^2.0.8",
-    "highcharts": "^7.1.2",
+    "highcharts": "^9.0.0",
     "highcharts-angular": "^2.4.0",
     "jquery": "^3.4.1",
     "mdbootstrap": "^4.8.2",
